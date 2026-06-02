@@ -220,3 +220,10 @@ __marimo__/
 __pycache__/
 *.db
 
+instance/
+*.db
+__pycache__/
+*.pyc
+.env
+flask
+set
