@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}All Tickets{% endblock %}
+
+{% block body %}
+<h2>All Tickets</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>URL</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <th>{{ ticket.id }}</th>
+            <td>{{ ticket.name }}</td>
+            <td>{{ ticket.status_string() }}</td>
+            <td>
+                <a href="{{ ticket.url }}">{{ ticket.url }}</a>
+            </td>
+            <td>
+                <a href="{{ url_for('tickets_show', ticket_id=ticket.id) }}">Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
